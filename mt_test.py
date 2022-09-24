@@ -73,19 +73,12 @@ while cap.isOpened():
 
     info = ByteToHex(mess_str)
 
-    f = open('data.txt','a')
-    f.write(info)
-    f.close()
-
-    f = open('data.txt','r')
-    deal = f.read()
-    real = deal
-    mybyte = bytes.fromhex(str(real))
+    mybyte = bytes.fromhex(str(info))
     binary_string = "{:08b}".format(int(mybyte.hex(),16))
     print(binary_string)
-    f.close()
 
-    #ser.write(bytes(message))
+
+    #ser.write(bytes(binary_string))
     #print(type(message))
 
     if not ret:
